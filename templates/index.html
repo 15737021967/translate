@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+
+        <div class="header">
+            <div class="nav main">
+                <a class="left">
+                    <img src="/static/imgs/logo.gif" >
+                </a>
+                
+                <ul class="right">
+                    <li>同传</li>
+                    <li>翻译机</li>
+                    <li>人工翻译</li>
+                    <li>翻译API</li>
+                    <li>翻译App</li>
+                    <li>登录</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contain-top main">
+                <select >
+                    <option  value="AUTO"><a href="javascript:;">自动检测语言</a></option>
+                    <option  value="zh-CHS2en"><a href="javascript:;">中文&nbsp; » &nbsp;英语</a></option>
+                    <option  value="en2zh-CHS"><a href="javascript:;">英语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2ja"><a href="javascript:;">中文&nbsp; » &nbsp;日语</a></option>
+                    <option  value="ja2zh-CHS"><a href="javascript:;">日语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2ko"><a href="javascript:;">中文&nbsp; » &nbsp;韩语</a></option>
+                    <option  value="ko2zh-CHS"><a href="javascript:;">韩语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2fr"><a href="javascript:;">中文&nbsp; » &nbsp;法语</a></option>
+                    <option  value="fr2zh-CHS"><a href="javascript:;">法语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2de"><a href="javascript:;">中文&nbsp; » &nbsp;德语</a></option>
+                    <option  value="de2zh-CHS"><a href="javascript:;">德语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2ru"><a href="javascript:;">中文&nbsp; » &nbsp;俄语</a></option>
+                    <option  value="ru2zh-CHS"><a href="javascript:;">俄语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2es"><a href="javascript:;">中文&nbsp; » &nbsp;西班牙语</a></option>
+                    <option  value="es2zh-CHS"><a href="javascript:;">西班牙语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2pt"><a href="javascript:;">中文&nbsp; » &nbsp;葡萄牙语</a></option>
+                    <option  value="pt2zh-CHS"><a href="javascript:;">葡萄牙语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2it"><a href="javascript:;">中文&nbsp; » &nbsp;意大利语</a></option>
+                    <option  value="it2zh-CHS"><a href="javascript:;">意大利语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2vi"><a href="javascript:;">中文&nbsp; » &nbsp;越南语</a></option>
+                    <option  value="vi2zh-CHS"><a href="javascript:;">越南语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2id"><a href="javascript:;">中文&nbsp; » &nbsp;印尼语</a></option>
+                    <option  value="id2zh-CHS"><a href="javascript:;">印尼语&nbsp; » &nbsp;中文</a></option>
+                    <option  value="zh-CHS2ar"><a href="javascript:;">中文&nbsp; » &nbsp;阿拉伯语</a></option>
+                    <option  value="ar2zh-CHS"><a href="javascript:;">阿拉伯语&nbsp; » &nbsp;中文</a></option>
+
+                </select>
+                <button class="transform transBtn">翻译</button>
+                <button class="transformPerson">人工翻译</button>
+            </div>
+            <div class="contain main">
+                <input class="left fl" placeholder="请输入您要翻译的文字或网址">
+
+                <input class="right fr">
+
+
+
+            </div>
+        </div>
+        <div class="foot">
+            <div class="footer main">
+                <div class="foot-contain">
+                    <div class="logo fl">
+                        <img src="/static/imgs/1.png" alt="">
+                    </div>
+                    <div class="title fr">
+                        <h2>文档翻译</h2>
+                        <p>Word,Excel智能翻译</p>
+                    </div>
+                </div>
+                <div class="foot-contain">
+                    <div class="logo fl">
+                        <img src="/static/imgs/2.png" alt="">
+                    </div>
+                    <div class="title fr">
+                        <h2>证件翻译</h2>
+                        <p>身份证等人工翻译</p>
+                    </div>
+                </div>
+                <div class="foot-contain">
+                    <div class="logo fl">
+                        <img src="/static/imgs/3.png" alt="">
+                    </div>
+                    <div class="title fr">
+                        <h2>简历翻译</h2>
+                        <p>求职简历人工翻译</p>
+                    </div>
+                </div>
+                <div class="foot-contain">
+                    <div class="logo fl">
+                        <img src="/static/imgs/4.png" alt="">
+                    </div>
+                    <div class="title fr">
+                        <h2>论文翻译</h2>
+                        <p>毕业论文翻译</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright main">
+            <p class="copy">copyright@16级物联一班</p><br>
+            <p>by 2019年</p>
+        </div>
+</body>
+</html>
+<script src="{% static 'jquery.min.js' %}"></script>
+<script>
+    $(function () {
+
+
+        $(".transBtn").click(function () {
+            var LeftType=$(".contain .left").val();
+            var dataType=$(".contain-top select option:selected").val();
+            $.ajax({
+                url:'http://127.0.0.1:8070/',
+                type:'POST',
+                data:{translateType:dataType,words:LeftType},
+                dataType:'JSON',
+                success:function (result) {
+                    $(".contain .right").val(result);
+                }
+            })
+        });
+    })
+</script>
+

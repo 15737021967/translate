@@ -1,0 +1,175 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+.main{
+    width:1210px;
+    margin:0px auto;
+}
+li {
+    list-style: none;
+    cursor: pointer;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+input{
+    list-style: none;
+    border:none;
+}
+
+
+/*头栏start*/
+.header{
+    /*border: 1px solid #000;*/
+    width:100%;
+    height:100px;
+    border-bottom: 1px solid #aaaaaa;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+.header .nav{
+    /*border: 1px solid #000;*/
+    height:100%;
+
+}
+.header .left{
+    float:left;
+    width:400px;
+    height:80px;
+    /*border: 1px solid pink;*/
+    overflow: hidden;
+}
+.header .right{
+    float:right;
+    width:500px;
+    height:80px;
+    /*border: 1px solid pink;*/
+    display: flex;
+    justify-content: space-around;
+   line-height: 80px;
+
+}
+/*头栏end*/
+
+
+/*内容statrt*/
+.container{
+    width:100%;
+    height:400px;
+    cursor: pointer;
+    /*border: 1px solid #000;*/
+}
+.container .contain-top{
+    height:60px;
+    /*border: 1px solid #000;*/
+    line-height: 60px;
+    margin-bottom: 20px;
+
+}
+.contain-top select{
+    width:200px;
+    height:40px;
+    margin-right:10px;
+
+}
+.contain-top button{
+    width:120px;
+    height:40px;
+    border: 1px solid #E02433;
+    background: #fff;
+    border-radius: 5px;
+    margin-right:10px;
+    cursor: pointer;
+}
+.contain-top .transform{
+    color:#fff;
+    background:#E02433;
+}
+.contain-top .transformPerson{
+    color:#E02433;
+    background: #fff;
+}
+
+.contain{
+    height:100%;
+    position:relative;
+    /*border: 1px solid #000;*/
+}
+.contain .left{
+
+}
+
+.contain .left,.contain .right{
+    width:530px;
+    height:220px;
+    /*border: 1px solid yellowgreen;*/
+    background: #f2f2f2;
+    border-radius: 10px;
+    font-size: 30px;
+    color:#000;
+    padding:20px;
+
+}
+
+.placehold{
+    color:#aaaaaa;
+    padding-left:20px;
+    padding-top:10px;
+    position:absolute;
+    left:20px;
+    top:10px;
+    font-size:30px;
+}
+/*内容end*/
+
+
+/*尾部start*/
+
+.foot{
+    width:100%;
+    height:100px;
+    /*border: 1px solid #000;*/
+    margin-bottom:80px;
+}
+.footer{
+    height:100%;
+    /*border: 1px solid #000;*/
+    display:flex;
+    justify-content: space-around;
+
+}
+.footer .foot-contain{
+    width:240px;
+    height:100px;
+    /*border: 1px solid green;*/
+    margin-top:20px;
+
+}
+.foot-contain .logo {
+padding-left:10px;
+    padding-right:10px;
+}
+.title p{
+    color:#aaaaaa;
+}
+.copyright{
+    /*width:100%;*/
+    height:100px;
+    /*border: 1px solid #000;*/
+
+}
+.copyright p{
+   position:absolute;
+    left:50%;
+    margin-left:-20px;
+    color: #aaaaaa;
+}
+.copyright .copy{
+    margin-left: -90px;
+}
+
+/*尾部end*/

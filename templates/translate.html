@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
+</head>
+<body>
+
+    <button id="div" onclick="che()">点击有惊喜</button>
+    <input type="button" id="div1" value="点一下试试" onclick="che()">
+    {% for foo in zh_other %}
+        <div>{{ foo.froms }}</div>
+    {% endfor %}
+
+</body>
+<script>
+    function che() {
+
+            $.ajax({
+                url: 'http://127.0.0.1:8070/',
+                type: 'POST',
+                data: {translateType: 'en2zh-CHS', words: 'who are you'},
+                dataType: "JSON",
+                success: function (rep) {
+                    alert(rep)
+                }
+            })
+
+    }
+
+</script>
+</html>
